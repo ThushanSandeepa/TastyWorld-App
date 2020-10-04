@@ -20,6 +20,12 @@
             android:orientation="vertical"
             android:padding="20dp">
 
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+
             <TextView
                 android:id="@+id/txt_topic"
                 android:layout_width="wrap_content"
@@ -97,6 +103,19 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:text="ADD RECIPE" />
+
+            <Button
+                android:id="@+id/Btn_update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UPDATE" />
+
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:text="DELETE" />
 
 
         </LinearLayout>
