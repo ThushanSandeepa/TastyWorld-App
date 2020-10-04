@@ -1,0 +1,10 @@
+<resources>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">close navigation drawer</string>
+    <string name="app_name">TastyWorld</string>
+    <string name="find_recipes">Find Recipes</string>
+    <string name="find_foods">Find Foods</string>
+    <string name="sell_your_product">Sell your Product</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_description">Product description</string>
+</resources>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "185614765133",
+    "firebase_url": "https://tastyworld-d03ca.firebaseio.com",
+    "project_id": "tastyworld-d03ca",
+    "storage_bucket": "tastyworld-d03ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:185614765133:android:669192a12925bf93e46004",
+        "android_client_info": {
+          "package_name": "com.example.tastyworld"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "185614765133-s9js7ra0m4vi0j2026cbloifjiaj9i8r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tastyworld",
+            "certificate_hash": "d7758ba93d2589eaa3fc758ea6aea90e0d997874"
+          }
+        },
+        {
+          "client_id": "185614765133-rr8fjgpob4l25usunatc8v4hu13suce9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-2tnoqSVyT-Q4YoVooxcKmogRUv5LeFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "185614765133-rr8fjgpob4l25usunatc8v4hu13suce9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
