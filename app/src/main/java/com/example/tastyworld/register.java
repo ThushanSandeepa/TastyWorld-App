@@ -2,6 +2,7 @@ package com.example.tastyworld;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -42,20 +43,23 @@ public class register extends AppCompatActivity {
         regBtn = findViewById(R.id.reg_btn);
         regToLogBtn = findViewById(R.id.reg_logBtn);
 
+        regToLogBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(register.this,login.class);
+                startActivity(intent);
+            }
+        });
+
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 rootNode = FirebaseDatabase.getInstance();
                 databaseReference = rootNode.getReference().child("User");
 
-                if(TextUtils.isEmpty(regName.getText().toString()))
-                    Toast.makeText(getApplicationContext(),"please enter an Name",Toast.LENGTH_SHORT).show();
-                else if(TextUtils.isEmpty(regEmail.getText().toString()))
-                    Toast.makeText(getApplicationContext(),"please enter  a Email",Toast.LENGTH_SHORT).show();
-                else if (TextUtils.isEmpty(regPhone.getText().toString()))
-                    Toast.makeText(getApplicationContext(),"Please enter an Phone",Toast.LENGTH_SHORT).show();
-                else if (TextUtils.isEmpty(regPassword.getText().toString()))
-                    Toast.makeText(getApplicationContext(),"Please enter an Password",Toast.LENGTH_SHORT).show();
+                //check validation
+                if(!validateUsername() || !validateEmail() || !validatePhone() ||!validatePassword())
+                    return;
                 else {
                     //get all the values
                     String username = regName.getText().toString().trim();
@@ -73,5 +77,62 @@ public class register extends AppCompatActivity {
                 }
             }
         });
+    }
+    //validations.....................................................................
+    private boolean validateUsername() {
+        String val = regName.getText().toString();
+        if (val.isEmpty()) {
+            regName.setError("Field cannot be empty");
+            return false;
+        }else if(val.length()>=12){
+            regName.setError("Username too long");
+            return false;
+        } else{
+            regName.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validateEmail() {
+        String val = regEmail.getText().toString();
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        if (val.isEmpty()) {
+            regEmail.setError("Field cannot be empty");
+            return false;
+        } else if(!val.matches(emailPattern)){
+            regEmail.setError("Invalid email address");
+            return false;
+        }else {
+            regEmail.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validatePhone() {
+        String val = regPhone.getText().toString();
+        if (val.isEmpty()) {
+            regPhone.setError("Field cannot be empty");
+            return false;
+        } else if(val.length()!=10){
+            regPhone.setError("Invalid phone number");
+            return false;
+        }else {
+            regEmail.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validatePassword() {
+        String val = regPassword.getText().toString();
+        if (val.isEmpty()) {
+            regPassword.setError("Field cannot be empty");
+            return false;
+        }else if(val.length()<=4){
+            regPassword.setError("password is too short");
+            return false;
+        } else{
+            regPassword.setError(null);
+            return true;
+        }
     }
 }

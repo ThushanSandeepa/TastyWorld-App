@@ -15,9 +15,12 @@
             android:id="@+id/food_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:gravity="center_horizontal"
             android:text="@string/product_name"
-            android:textSize="24sp" />
+            android:textColor="#070707"
+            android:textSize="26sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/food_image"
@@ -29,9 +32,10 @@
             android:id="@+id/food_des"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:gravity="center_horizontal"
             android:text="@string/product_description"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/food_price"
@@ -39,12 +43,14 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="Price"
-            android:textSize="18sp" />
+            android:textColor="#673AB7"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#FF9800"
             android:text="Add Cart" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

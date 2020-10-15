@@ -41,7 +41,11 @@ public class addFood extends AppCompatActivity {
     private StorageReference foodImageRef;
     private DatabaseReference foodRef;
 
-
+    private void clearControls(){
+        productName.setText("");
+        productDes.setText("");
+        productPrice.setText("");
+    }
 
 
     @Override
@@ -97,8 +101,8 @@ public class addFood extends AppCompatActivity {
         pPrice = productPrice.getText().toString();
         pName = productName.getText().toString();
 
-        if(imageUri == null){
-            Toast.makeText(this,"Product image not added",Toast.LENGTH_SHORT).show();
+        if(TextUtils.isEmpty(pName)){
+            Toast.makeText(this,"Please enter a product name",Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty(pDes)){
             Toast.makeText(this,"Please write description about your food",Toast.LENGTH_SHORT).show();
@@ -106,8 +110,8 @@ public class addFood extends AppCompatActivity {
         else if (TextUtils.isEmpty(pPrice)){
             Toast.makeText(this,"Please enter a product price",Toast.LENGTH_SHORT).show();
         }
-        else if (TextUtils.isEmpty(pName)){
-            Toast.makeText(this,"Please enter a product name ",Toast.LENGTH_SHORT).show();
+        else if (imageUri == null){
+            Toast.makeText(this,"Product image not added ",Toast.LENGTH_SHORT).show();
         }
         else {
             storeFoodInformation();
@@ -182,6 +186,7 @@ public class addFood extends AppCompatActivity {
 
                         if(task.isSuccessful()){
                             Toast.makeText(addFood.this,"product is added successfully",Toast.LENGTH_SHORT).show();
+                            clearControls();
 
                         }else {
                             String message = task.getException().toString();

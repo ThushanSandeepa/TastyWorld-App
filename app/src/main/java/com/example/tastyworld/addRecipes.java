@@ -41,6 +41,11 @@ public class addRecipes extends AppCompatActivity {
     private StorageReference recipesImageRef;
     private DatabaseReference recipesRef;
 
+    private void clearControls(){
+        recipeName.setText("");
+        recipeIng.setText("");
+        recipeDirection.setText("");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -180,6 +185,7 @@ public class addRecipes extends AppCompatActivity {
 
                         if(task.isSuccessful()){
                             Toast.makeText(addRecipes.this,"product is added successfully",Toast.LENGTH_SHORT).show();
+                            clearControls();
                         }else {
                             String message = task.getException().toString();
                             Toast.makeText(addRecipes.this,"Error"+ message,Toast.LENGTH_SHORT).show();

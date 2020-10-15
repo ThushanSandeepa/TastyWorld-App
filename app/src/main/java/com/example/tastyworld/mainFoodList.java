@@ -50,7 +50,7 @@ public class mainFoodList extends AppCompatActivity {
                     protected void onBindViewHolder(@NonNull foodViewHolder holder, int position, @NonNull FoodItems model) {
                         holder.txtFoodName.setText(model.getProductName());
                         holder.txtFoodDes.setText(model.getDescription());
-                        holder.txtFoodPrice.setText("Price ="+model.getPrice());
+                        holder.txtFoodPrice.setText("Price = Rs "+model.getPrice());
                         Picasso.get().load(model.getImage()).into(holder.imageView);
                     }
 

@@ -59,25 +59,22 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/reg_username"
+            android:id="@+id/log_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
             android:hint="Username"
-            android:inputType="textPersonName"
-            android:textColorHighlight="@color/colorPrimary"
-            android:textColorLink="@color/colorPrimary"
-            android:textCursorDrawable="@color/colorPrimary" />
+            android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/reg_password"
+            android:id="@+id/log_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
             android:hint="Password"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword" />
 
         <Button
             android:id="@+id/button2"
@@ -90,15 +87,15 @@
             android:text="froget password?" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/log_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="loginUser"
-            android:text="Sign up" />
+            android:text="Sign In" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/callregBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

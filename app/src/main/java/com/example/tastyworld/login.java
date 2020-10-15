@@ -18,42 +18,56 @@ import com.google.firebase.database.ValueEventListener;
 
 public class login extends AppCompatActivity {
 
-    EditText username,password;
-    Button loginBtn,regCallBtn,frogetPWBtn;
+    EditText username, password;
+    Button loginBtn, regCallBtn, frogetPWBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        username = (EditText) findViewById(R.id.log_username);
+        password = (EditText) findViewById(R.id.log_password);
+        regCallBtn=(Button) findViewById(R.id.callregBtn);
+
+        regCallBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(login.this,register.class);
+                startActivity(intent);
+            }
+        });
     }
-    
-    private boolean validateUsername(){
+
+    private boolean validateUsername() {
         String val = username.getText().toString();
-        if(val.isEmpty()){
+        if (val.isEmpty()) {
             username.setError("Field cannot be empty");
             return false;
-        }else {
+        } else {
             username.setError(null);
             return true;
         }
     }
-   private boolean validatePassword(){
+
+    private boolean validatePassword() {
         String val = password.getText().toString();
-        if(val.isEmpty()){
+        if (val.isEmpty()) {
             password.setError("Field cannot be empty");
             return false;
-        }else{
+        } else {
             password.setError(null);
             return true;
         }
     }
+
     public void loginUser(View view) {
         //validate
-        if (!validateUsername() || !validatePassword()) {
-            return;
-        } else {
-            isUser();
-        }
+         if (!validateUsername() || !validatePassword()) {
+              return;
+          } else {
+        isUser();
+          }
     }
 
     private void isUser() {
@@ -68,32 +82,30 @@ public class login extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                if(snapshot.exists()){
+                if (snapshot.exists()) {
 
                     username.setError(null);
 
                     String passwordFromDB = snapshot.child(userInputUsername).child("password").getValue(String.class);
-                    if(passwordFromDB.equals(userInputPassword)){
+                    if (passwordFromDB.equals(userInputPassword)) {
                         String usernameFromDB = snapshot.child(userInputUsername).child("username").getValue(String.class);
                         String emailFromDB = snapshot.child(userInputUsername).child("email").getValue(String.class);
                         String phoneFromDB = snapshot.child(userInputUsername).child("phone").getValue(String.class);
 
-                        Intent intent = new Intent(getApplicationContext(),profile.class);
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 
-                        intent.putExtra("username",usernameFromDB);
-                        intent.putExtra("email",emailFromDB);
-                        intent.putExtra("phone",phoneFromDB);
-                        intent.putExtra("password",passwordFromDB);
+                        intent.putExtra("username", usernameFromDB);
+                        intent.putExtra("email", emailFromDB);
+                        intent.putExtra("phone", phoneFromDB);
+                        intent.putExtra("password", passwordFromDB);
 
                         startActivity(intent);
+                    } else {
+                         password.setError("Wrong password");
+                         password.requestFocus();
                     }
-                    else {
-                        password.setError("Wrong password");
-                        password.requestFocus();
-                    }
-                }
-                else {
-                    username.setError("No such user exist");
+                } else {
+                     username.setError("No such user exist");
                     password.requestFocus();
                 }
             }
