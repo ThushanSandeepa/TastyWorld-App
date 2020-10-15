@@ -50,7 +50,7 @@ public class addFood extends AppCompatActivity {
         foodImageRef = FirebaseStorage.getInstance().getReference().child("Product images");
         foodRef = FirebaseDatabase.getInstance().getReference().child("Foods");
 
-        addFoodBtn = (Button) findViewById(R.id.food_submit);
+        addFoodBtn = (Button) findViewById(R.id.pay_submit);
         imageAdd = (ImageView) findViewById(R.id.addImage);
         productName = (EditText) findViewById(R.id.productName);
         productDes = (EditText) findViewById(R.id.productDes);

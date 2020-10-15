@@ -21,7 +21,7 @@ public class profile extends AppCompatActivity {
         paymentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(profile.this,addPayment.class);
+                Intent intent = new Intent(profile.this,Payment.class);
                 startActivity(intent);
             }
         });

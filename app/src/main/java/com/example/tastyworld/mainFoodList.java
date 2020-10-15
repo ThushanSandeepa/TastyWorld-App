@@ -54,7 +54,7 @@ public class mainFoodList extends AppCompatActivity {
                         holder.txtFoodPrice.setText("Price ="+model.getPrice());
                         Picasso.get().load(model.getImage()).into(holder.imageView);
 
-                        //ch
+                        //chaveena
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {

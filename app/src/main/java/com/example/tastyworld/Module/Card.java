@@ -7,6 +7,13 @@ public class Card {
     public Card() {
     }
 
+    public Card(String cardNo, String cardName, String cardDate, String cardCVV) {
+        this.cardNo = cardNo;
+        this.cardName = cardName;
+        this.cardDate = cardDate;
+        this.cardCVV = cardCVV;
+    }
+
     public String getCardNo() {
         return cardNo;
     }

@@ -27,7 +27,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add payment details"
+                android:text="Payment details"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -111,24 +111,30 @@
                 app:srcCompat="@drawable/card" />
 
             <Button
-                android:id="@+id/food_submit"
+                android:id="@+id/pay_submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:text="Submit" />
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/pay_show"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/colorButtonNormal"
-                android:text="Update" />
+                android:text="Show" />
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/pay_update"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
+                android:text="Update" />
+
+            <Button
+                android:id="@+id/pay_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Delete" />
 
 

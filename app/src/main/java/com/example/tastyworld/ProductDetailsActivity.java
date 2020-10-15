@@ -3,6 +3,7 @@ package com.example.tastyworld;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -54,6 +55,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addingToCartList();
+
             }
         });
 
@@ -85,6 +87,11 @@ public class ProductDetailsActivity extends AppCompatActivity {
         //productPrice, productDescription,productName;
 
 //        cartListRef.child("User View").child(Preva)
+        //today
+        Intent intent = new Intent(ProductDetailsActivity.this,CartActivity.class);
+        startActivity(intent);
+        //end
+
 
     }
 
