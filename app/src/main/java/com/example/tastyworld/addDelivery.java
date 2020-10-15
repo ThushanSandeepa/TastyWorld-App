@@ -36,7 +36,7 @@ public class addDelivery extends AppCompatActivity {
 
         fName = findViewById(R.id.del_fName);
         cNo = findViewById(R.id.Del_phone);
-        province = findViewById(R.id.Del_phone);
+        province = findViewById(R.id.Del_province);
         city = findViewById(R.id.Del_city);
         address = findViewById(R.id.Del_address);
 
@@ -51,8 +51,8 @@ public class addDelivery extends AppCompatActivity {
 
                 if(TextUtils.isEmpty(fName.getText().toString()))
                     Toast.makeText(getApplicationContext(),"please enter full name",Toast.LENGTH_SHORT).show();
-                else if(TextUtils.isEmpty(cNo.getText().toString()))
-                    Toast.makeText(getApplicationContext(),"please enter contact number",Toast.LENGTH_SHORT).show();
+                else if(!validatePhone())
+                    return;
                 else if (TextUtils.isEmpty(province.getText().toString()))
                     Toast.makeText(getApplicationContext(),"Please enter your province",Toast.LENGTH_SHORT).show();
                 else if (TextUtils.isEmpty(city.getText().toString()))
@@ -74,5 +74,19 @@ public class addDelivery extends AppCompatActivity {
                 }
             }
         });
+    }
+//validate phone
+    private boolean validatePhone() {
+        String val = cNo.getText().toString();
+        if (val.isEmpty()) {
+            cNo.setError("Field cannot be empty");
+            return false;
+        } else if(val.length()!=10){
+            cNo.setError("Invalid phone number");
+            return false;
+        }else {
+            cNo.setError(null);
+            return true;
+        }
     }
 }
